@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 class MainActivityModel: ViewModel() {
-    fun changeTextButton(context: Context, textView: TextView) {
-        if(textView.text == "Origin"){
-            textView.text = "Changed"
-        }
-        else{
-            textView.text = "Origin"
-        }
+    var persistedText = "";
+
+    fun changeTextButton(textView: TextView) {
+        persistedText = (if(persistedText == "Origin") "Changed" else "Origin")
+        textView.text = persistedText
     }
 }
